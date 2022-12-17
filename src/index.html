@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const WASM_PATH = "../target/wasm32-unknown-unknown/debug/wasm_mdn.wasm";
+    (async () => {
+        const bytes = await fetch(WASM_PATH);
+        const response = await bytes.arrayBuffer();
+        const result = await WebAssembly.instantiate(response, {});
+        console.log(result.instance.exports.add(10,3));
+    })();
+</script>
+</body>
+</html>
