@@ -13,7 +13,7 @@ pub fn greet(name: &str) {
 #[no_mangle]
 fn add(x: i32, y:i32) -> i32 {x + y}
 
-#[no_mangle]
-fn parse_text(text: String) -> String {
+#[wasm_bindgen]
+pub fn parse_text(text: String) -> String {
     return text.replace("lorem", "LOREM");
 }
